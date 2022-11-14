@@ -90,4 +90,4 @@ var finances = [
 // Computing total number of months included in the dataset
 var numOfEntries = finances.length
 
-console.log()
+console.log(numOfEntries)

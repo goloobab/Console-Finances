@@ -40,7 +40,7 @@ Your task is to write JavaScript code that analyzes the records to calculate eac
 
 
 ## Links
-Deployed project: https://goloobab.github.io/Bootstrap-Portfolio/
+Deployed project: https://goloobab.github.io/Console-Finances/
 
 ## License 
 Please refer to the LICENSE enclosed in the repository

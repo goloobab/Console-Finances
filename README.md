@@ -51,6 +51,6 @@ If you have any questions, please contact me at:
  
   Github Profile: [goloobab](https://github.com/goloobab/)  
 
-  Email:  goloobab@gmail.com
+  Email: goloobab@gmail.com 
 
   LinkedIn: [ Golooba Billy ](linkedin.com/in/goloobab)

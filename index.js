@@ -89,7 +89,7 @@ var finances = [
 
 // Computing total number of months included in the dataset
 var totalMonths = finances.length
-console.log(totalMonths)
+// console.log(totalMonths)
 console.log("Financial Analysis \n........................")
 console.log("Total Months: " + totalMonths)
 
@@ -104,15 +104,15 @@ for (let i = 0; i < totalMonths; i++) {
    profitsAndLosses.push(entry[1]);
 
 }
-console.log(dates);
-console.log(profitsAndLosses)
+// console.log(dates);
+// console.log(profitsAndLosses)
 
 // Computing the net total amount of Profit/Losses over the entire period
 var sum = 0
 for (let i = 0; i < profitsAndLosses.length; i++) {
     sum = sum + profitsAndLosses[i]; 
 } 
-console.log("Total Profit/Losses for all the months: " + sum)
+console.log("Total Months: " + sum)
 
 //Computing the average of the **changes** in Profit/Losses over the entire period
 
@@ -124,17 +124,31 @@ for (var i = 1 ; i < profitsAndLosses.length; i++) {
     monthlyChanges = profitsAndLosses[i] - profitsAndLosses[i-1];
     // Getting the total of the changes
     totalOfChanges = totalOfChanges + monthlyChanges
-    
-    if (difference < maxDecrease) {
-        maxDecrease = difference
-        maxDecreaseDate = dates[i];
-    }
-
+       
 }
     // Printing the average while rounding to the nearest 100th
 console.log("Average  Change: $" + (totalOfChanges / totalMonths).toFixed(2));
 
 
+//The greatest increase in profits (date and amount) over the entire period
+
+var maxIncrease = profitsAndLosses[0];
+var maxIncreaseDate = dates[0];
+var previousValue;
+var currentValue;
+for (let i = 1; i < totalMonths; i++){
+    // Assigning the current and previous values to the declared variables
+    previousValue = profitsAndLosses[i-1];
+    currentValue = profitsAndLosses[i];
+    
+    difference = currentValue  - previousValue;
+    if (difference > maxIncrease) {
+        maxIncrease = difference;
+        maxIncreaseDate = dates[i];
+    }
+             
+}
+console.log("Greatest Increase in Profits:", maxIncreaseDate ,"($"+maxIncrease+')')
 
 
 
@@ -143,6 +157,7 @@ var maxDecrease = profitsAndLosses[0];
 var maxDecreaseDate = dates[0];
 
 for ( var i = 0; i < totalMonths; i++) {
+
     difference = profitsAndLosses[i] - profitsAndLosses[i-1];
 
     if (difference < maxDecrease) {
@@ -151,5 +166,4 @@ for ( var i = 0; i < totalMonths; i++) {
     }
 }
 
-console.log(maxDecrease)
-console.log(maxDecreaseDate)
+console.log("Greatest Decrease in Profits: " + maxDecreaseDate , "($"+maxDecrease+")")

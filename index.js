@@ -92,3 +92,17 @@ var numOfEntries = finances.length
 console.log(numOfEntries)
 console.log("Financial Analysis \n........................")
 console.log("Total Months: " + numOfEntries)
+
+// Declare different variables to store for Dates and ProfitsAndLosses 
+var dates = [];
+var profitsAndLosses = [];
+// Unpack/extract dates and profiAndLoss values from the finances array at index i
+for (let i = 0; i < numOfEntries; i++) {
+   
+   let entry = finances[i];
+   dates.push(entry[0]);
+   profitsAndLosses.push(entry[1]);
+
+}
+console.log(dates);
+console.log(profitsAndLosses)

@@ -88,16 +88,16 @@ var finances = [
 ];
 
 // Computing total number of months included in the dataset
-var numOfEntries = finances.length
-console.log(numOfEntries)
+var totalMonths = finances.length
+console.log(totalMonths)
 console.log("Financial Analysis \n........................")
-console.log("Total Months: " + numOfEntries)
+console.log("Total Months: " + totalMonths)
 
 // Declare different variables to store data for Dates and ProfitsAndLosses 
 var dates = [];
 var profitsAndLosses = [];
 // Unpack/extract dates and profiAndLoss values from the finances array at index i
-for (let i = 0; i < numOfEntries; i++) {
+for (let i = 0; i < totalMonths; i++) {
    
    let entry = finances[i];
    dates.push(entry[0]);
@@ -109,7 +109,47 @@ console.log(profitsAndLosses)
 
 // Computing the net total amount of Profit/Losses over the entire period
 var sum = 0
-for (let i = 0; i < numOfEntries; i++) {
+for (let i = 0; i < profitsAndLosses.length; i++) {
     sum = sum + profitsAndLosses[i]; 
 } 
 console.log("Total Profit/Losses for all the months: " + sum)
+
+//Computing the average of the **changes** in Profit/Losses over the entire period
+
+    // Declare variables to store changes in profit/losses
+var totalOfChanges = profitsAndLosses[0];
+    
+for (var i = 1 ; i < profitsAndLosses.length; i++) {
+    
+    monthlyChanges = profitsAndLosses[i] - profitsAndLosses[i-1];
+    // Getting the total of the changes
+    totalOfChanges = totalOfChanges + monthlyChanges
+    
+    if (difference < maxDecrease) {
+        maxDecrease = difference
+        maxDecreaseDate = dates[i];
+    }
+
+}
+    // Printing the average while rounding to the nearest 100th
+console.log("Average  Change: $" + (totalOfChanges / totalMonths).toFixed(2));
+
+
+
+
+
+// Computing the greatest decrease in losses (date and amount) over the entire period. 
+var maxDecrease = profitsAndLosses[0];
+var maxDecreaseDate = dates[0];
+
+for ( var i = 0; i < totalMonths; i++) {
+    difference = profitsAndLosses[i] - profitsAndLosses[i-1];
+
+    if (difference < maxDecrease) {
+        maxDecrease = difference
+        maxDecreaseDate = dates[i];
+    }
+}
+
+console.log(maxDecrease)
+console.log(maxDecreaseDate)

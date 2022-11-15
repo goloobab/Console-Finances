@@ -93,7 +93,7 @@ console.log(numOfEntries)
 console.log("Financial Analysis \n........................")
 console.log("Total Months: " + numOfEntries)
 
-// Declare different variables to store for Dates and ProfitsAndLosses 
+// Declare different variables to store data for Dates and ProfitsAndLosses 
 var dates = [];
 var profitsAndLosses = [];
 // Unpack/extract dates and profiAndLoss values from the finances array at index i
@@ -106,3 +106,10 @@ for (let i = 0; i < numOfEntries; i++) {
 }
 console.log(dates);
 console.log(profitsAndLosses)
+
+// Computing the net total amount of Profit/Losses over the entire period
+var sum = 0
+for (let i = 0; i < numOfEntries; i++) {
+    sum = sum + profitsAndLosses[i]; 
+} 
+console.log("Total Profit/Losses for all the months: " + sum)
